@@ -1,0 +1,39 @@
+{% extends 'massRoom/base.html' %}
+{% load staticfiles %}
+{% block title %}Про нас{% endblock %}
+{% block about_class %}active{% endblock %}
+{% block content %}
+
+	<div id="blue">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+				<h4>ДІЗНАЙТЕСЬ БІЛЬШЕ ПРО НАС</h4>
+				</div>
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!--  bluewrap -->
+
+
+	<div class="container desc">
+        {% for staff in staffs %}
+            <div class="row">
+                <br><br>
+                <div class="col-lg-6 centered">
+                    <img src="{{ MEDIA_URL }}{{ staff.image.url }}" width="300" alt="">
+                </div><!-- col-lg-6 -->
+                <div class="col-lg-6">
+                    <h4>{{ staff.name }}</h4>
+                    <h5>{{ staff.position }}</h5>
+                    <p>{{ staff.description }}</p>
+                    <p><b>E-mail:</b> {{ staff.email }}</p>
+                    <p><b>Телефон:</b> {{ staff.phone_number }}</p>
+                </div>
+            </div><!-- row -->
+            <br><br>
+            <hr>
+        {% endfor %}
+    </div><!-- container -->
+
+
+{% endblock %}
